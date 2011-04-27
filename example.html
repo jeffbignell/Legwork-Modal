@@ -2,44 +2,166 @@
 
 <html lang="en" class="no-js">
 <head>
-	<title>Legwork Modal Examples</title>
-	
-	<!-- Meta -->
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="title" content="Legwork Modal Examples" />
-	<meta name="copyright" content="Copyright © Legwork Studio. All Rights Reserved." />
-	<meta name="author" content="Legwork Studio (http://www.legworkstudio.com)" />
-	<meta name="robots" content="index, follow" />
-	
-	<link rel="shortcut icon" href="favicon.ico" />
-	
-	<!-- Whatever you do, do it with style -->
-	<link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
-	<link rel="stylesheet" href="lib/css/main.css" />
-	
-	<!-- JavaScript, the client side sauce -->
-	<script type="text/javascript" src="lib/js/modernizr-1.7.min.js"></script>
-	<script type="text/javascript" src="lib/js/modals.init.js"></script>
+  <title>Legwork Modal Examples</title>
+  
+  <!-- Meta -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="title" content="Legwork Modal Examples" />
+  <meta name="copyright" content="Copyright © Legwork Studio. All Rights Reserved." />
+  <meta name="author" content="Legwork Studio (http://www.legworkstudio.com)" />
+  <meta name="robots" content="index, follow" />
+  
+  <link rel="shortcut icon" href="favicon.ico" />
+  
+  <!-- Whatever you do, do it with style -->
+  <link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
+  <link rel="stylesheet" href="lib/css/main.css" />
 </head>
 
 <body>
-<div id="wrapper">
-	<h1>Do It Live! Modals</h1>
-	<code>$('#example-1').modal({<br>&nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>&nbsp;&nbsp;openNow: true<br>});</code>
-	<p><a href="#example-1">Example 1</a></p>
-	<code>$('&lt;div id="example-2"&gt;&lt;/div&gt;').css({<br>&nbsp;&nbsp;'width':'400px',<br>&nbsp;&nbsp;'height':'300px',<br>&nbsp;&nbsp;'background-color':'#f00'<br>})<br>.modal({<br>&nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>&nbsp;&nbsp;openNow: true<br>});</code>
-	<p><a href="#example-2">Example 2</a></p>
-</div><!--/wrapper -->
-
-<!-- modals -->
-<aside id="example-1" class="modal">
-</aside>
-<!--/modals -->
-
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
-<script type="text/javascript">window.jQuery || document.write('<script src="lib/js/jquery-1.5.2.min.js">\x3C/script>')</script>
-<script type="text/javascript" src="lib/js/jquery.legwork-modal.0.1.js"></script>
-<script type="text/javascript" src="lib/js/modals.examples.js"></script>
+  <div id="wrapper">
+    <h1>Do It Live! Modals</h1>
+    
+    <h2>1. Already in the DOM</h2>
+    <code>
+      $('#example-1').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-1">Example 1</a></p>
+    
+    <h2>2. Dynamically Added</h2>
+    <code>
+      $('&lt;div id="example-2"&gt;&lt;/div&gt;').css({<br>
+      &nbsp;&nbsp;'width':'400px',<br>
+      &nbsp;&nbsp;'height':'300px',<br>
+      &nbsp;&nbsp;'background-color':'#fff'<br>
+      })<br>
+      .modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-2">Example 2</a></p>
+    
+    <h2>3. Dynamically Added With Custom Placement</h2>
+    <code>
+      $('&lt;div id="example-3"&gt;&lt;/div&gt;').css({<br>
+      &nbsp;&nbsp;'width':'640px',<br>
+      &nbsp;&nbsp;'height':'480px',<br>
+      &nbsp;&nbsp;'background-color':'#fff'<br>
+      })<br>
+      .modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-320px'],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-3">Example 3</a></p>
+    
+    <h2>4. Callbacks</h2>
+    <code>
+      $('#example-4').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;openNow: true,<br>
+			&nbsp;&nbsp;onOpened: function() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;alert('opened');<br>
+			&nbsp;&nbsp;},<br>
+			&nbsp;&nbsp;onClosed: function() {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;alert('closed');<br>
+			&nbsp;&nbsp;}<br>
+      });
+    </code>
+    <p><a href="#example-4">Example 4</a></p>
+    
+    <h2>5. Custom Background Image</h2>
+    <code>
+      $('#example-5').modal({<br>
+      &nbsp;&nbsp;background: ['', 'lib/img/example-bg.png', 1, true],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-5">Example 5</a></p>
+    
+    <h2>6. Open Later</h2>
+    <code>
+      var $m = $('#example-6').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true]<br>
+      });<br><br>
+      
+			setTimeout(function() {<br>
+			&nbsp;&nbsp;$m.modal('open');<br>
+			}, 500);
+    </code>
+    <p><a href="#example-6">Example 6</a></p>
+    
+    <h2>7. Close</h2>
+    <code>
+      $('#example-7').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;openNow: true<br>
+			&nbsp;&nbsp;onOpened: function() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;$ref = $(this);<br><br>
+				
+			&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function() {<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref.modal('close');<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;}, 1000);<br>
+			&nbsp;&nbsp;}<br>
+      });
+    </code>
+    <p><a href="#example-7">Example 7</a></p>
+    
+    <h2>8. Reinitialize</h2>
+    <code>
+      $('#example-8').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });<br><br>
+      
+      $('#example-8').modal({<br>
+      &nbsp;&nbsp;background: ['#f00', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-360px'],<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-8">Example 8</a> &middot; <a href="#example-8-2">Example 8 (Reinitialized)</a></p>
+    
+    <h2>9. Clone An Existing Element</h2>
+    <code id="example-9">
+      $('#example-9').modal({<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;clone: true,<br>
+      &nbsp;&nbsp;openNow: true<br>
+      });
+    </code>
+    <p><a href="#example-9">Example 9</a>
+  </div><!--/wrapper -->
+  
+  <!-- modals -->
+  <aside id="example-1" style="background-color:#ff0;">
+  </aside>
+  
+  <aside id="example-4">
+  </aside>
+  
+  <aside id="example-5">
+  </aside>
+  
+  <aside id="example-6">
+  </aside>
+  
+  <aside id="example-7">
+  </aside>
+  
+  <aside id="example-8">
+  </aside>
+  <!--/modals -->
+  
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+  <script type="text/javascript">window.jQuery || document.write('<script src="lib/js/jquery-1.5.2.min.js">\x3C/script>')</script>
+  <script type="text/javascript" src="lib/js/jquery.legwork-modal.0.3.js"></script>
+  <script type="text/javascript" src="lib/js/modals.examples.js"></script>
 
 </body>
 </html>

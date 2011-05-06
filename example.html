@@ -22,6 +22,86 @@
   <div id="wrapper">
     <h1>Do It Live! Modals</h1>
     
+    <h2>Properties</h2>
+
+    <code>
+    // defaults<br>
+    {<br>
+    &nbsp;&nbsp;background:['#000', 'none', 1, true],<br>
+    &nbsp;&nbsp;clone: false,<br>
+    &nbsp;&nbsp;placement:[],<br>
+    &nbsp;&nbsp;openNow:false,<br>
+    &nbsp;&nbsp;destroyOnClose:true,<br>
+    &nbsp;&nbsp;onOpened:null,<br>
+    &nbsp;&nbsp;onClosed:null<br>
+    }
+    </code>
+
+    <p>
+      <b>background:Array = [color:String, image:String, opacity:Number, closeOnClick:Boolean]<br>
+      default = ['#000', 'none', 1, true]</b><br><br>
+      Array describing the appearance of the modal background.
+    </p>
+    
+    <p>
+      <b>clone:Boolean<br>
+      default = false</b><br><br>
+      If true, the passed element will be cloned for the modal and unaffected in the DOM.
+    </p>
+    
+    <p>
+      <b>placement:Array = [top:String, left:String, margin-top:String, margin-left:String]<br>
+      default = []</b><br><br>
+      Array describing custom placement for the modal (values should be css, e.g. '20px' or '50%').
+    </p>
+    
+    <p>
+      <b>openNow:Boolean<br>
+      default = false</b><br><br>
+      If true, the modal will open immediately. (Alternatively, you could initialize then open later with the 'open' method.)
+    </p>
+    
+    <p>
+      <b>destroyOnClose:Boolean<br>
+      default = true</b><br><br>
+      If true, modal will be destroyed on close.
+    </p>
+    
+    <p>
+      <b>onOpened:Function<br>
+      default = null</b><br><br>
+      A callback that will be called when the modal is finished opening.
+    </p>
+    
+    <p>
+      <b>onClosed:Function<br>
+      default = null</b><br><br>
+      A callback that will be called when the modal is finished closing.
+    </p>
+    
+    <h2>Methods</h2>
+    
+    <p>
+      <b>$('sel').modal(settings:Object);</b><br><br>
+      Initializes a modal on the selected element with the passed settings.
+    </p>
+    
+    <p>
+      <b>$('sel').modal('open', callback:Function);</b><br><br>
+      Opens a modal that has been previously initialized with an optional callback.
+    </p>
+    
+    <p>
+      <b>$('sel').modal('close', callback:Function);</b><br><br>
+      Closes a modal that is currently open with an optional callback.
+    </p>
+    
+    <p>
+      <b>$('sel').modal('destroy');</b><br><br>
+      Removes all modal elements for selected item from the DOM and returns non-dynamic items to thier original state.
+    </p>
+    
+    <h1>Examples</h1>
     <h2>1. Already in the DOM</h2>
     <code>
       $('#example-1').modal({<br>
@@ -87,28 +167,24 @@
     <h2>6. Open Later</h2>
     <code>
       var $m = $('#example-6').modal({<br>
-      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true]<br>
+      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+      &nbsp;&nbsp;destroyOnClose: false<br>
       });<br><br>
       
-			setTimeout(function() {<br>
-			&nbsp;&nbsp;$m.modal('open');<br>
-			}, 500);
+      // then later or somewhere else in code<br>
+			$m.modal('open');
     </code>
     <p><a href="#example-6">Example 6</a></p>
     
     <h2>7. Close</h2>
     <code>
-      $('#example-7').modal({<br>
-      &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
-      &nbsp;&nbsp;openNow: true<br>
-			&nbsp;&nbsp;onOpened: function() {<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;$ref = $(this);<br><br>
-				
-			&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function() {<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ref.modal('close');<br>
-			&nbsp;&nbsp;&nbsp;&nbsp;}, 1000);<br>
-			&nbsp;&nbsp;}<br>
-      });
+			$m = $('#example-7').modal({<br>
+		  &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
+		  &nbsp;&nbsp;openNow: true<br>
+			});<br><br>
+			
+      // then later<br>
+			$m.modal('close');
     </code>
     <p><a href="#example-7">Example 7</a></p>
     
@@ -119,6 +195,7 @@
       &nbsp;&nbsp;openNow: true<br>
       });<br><br>
       
+      // then later<br>
       $('#example-8').modal({<br>
       &nbsp;&nbsp;background: ['#f00', 'none', 0.85, true],<br>
       &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-360px'],<br>
@@ -136,6 +213,12 @@
       });
     </code>
     <p><a href="#example-9">Example 9</a>
+  
+    <h2>10. Destroy</h2>
+    <code id="example-10">
+      $('#example-10').modal('close', true);<br>
+      $('#example-10').modal('destroy');
+    </code>
   </div><!--/wrapper -->
   
   <!-- modals -->
@@ -152,6 +235,7 @@
   </aside>
   
   <aside id="example-7">
+    <a href="#example-7-close">[close]</a>
   </aside>
   
   <aside id="example-8">
@@ -160,7 +244,7 @@
   
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
   <script type="text/javascript">window.jQuery || document.write('<script src="lib/js/jquery-1.5.2.min.js">\x3C/script>')</script>
-  <script type="text/javascript" src="lib/js/jquery.legwork-modal.0.3.js"></script>
+  <script type="text/javascript" src="lib/js/jquery.legwork-modal.0.4.js"></script>
   <script type="text/javascript" src="lib/js/modals.examples.js"></script>
 
 </body>

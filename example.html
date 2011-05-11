@@ -16,6 +16,9 @@
   <!-- Whatever you do, do it with style -->
   <link rel="stylesheet" href="http://yui.yahooapis.com/3.3.0/build/cssreset/reset-min.css">
   <link rel="stylesheet" href="lib/css/main.css" />
+  
+  <!-- Keep it modern -->
+  <script type="text/javascript" src="lib/js/modernizr-1.7.min.js"></script>
 </head>
 
 <body>
@@ -50,7 +53,7 @@
     </p>
     
     <p>
-      <b>placement:Array = [top:String, left:String, margin-top:String, margin-left:String]<br>
+      <b>placement:Array = [top:String, left:String, margin-top:String, margin-left:String, position:String]<br>
       default = []</b><br><br>
       Array describing custom placement for the modal (values should be css, e.g. '20px' or '50%').
     </p>
@@ -134,7 +137,7 @@
       })<br>
       .modal({<br>
       &nbsp;&nbsp;background: ['#000', 'none', 0.85, true],<br>
-      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-320px'],<br>
+      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-320px', 'absolute'],<br>
       &nbsp;&nbsp;openNow: true<br>
       });
     </code>
@@ -198,7 +201,7 @@
       // then later<br>
       $('#example-8').modal({<br>
       &nbsp;&nbsp;background: ['#f00', 'none', 0.85, true],<br>
-      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-360px'],<br>
+      &nbsp;&nbsp;placement: ['20px', '50%', '0px', '-360px', 'fixed'],<br>
       &nbsp;&nbsp;openNow: true<br>
       });
     </code>
@@ -244,8 +247,7 @@
   
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
   <script type="text/javascript">window.jQuery || document.write('<script src="lib/js/jquery-1.5.2.min.js">\x3C/script>')</script>
-  <script type="text/javascript" src="lib/js/jquery.legwork-modal.0.4.js"></script>
+  <script type="text/javascript" src="lib/js/jquery.legwork-modal.0.5.js"></script>
   <script type="text/javascript" src="lib/js/modals.examples.js"></script>
-
 </body>
 </html>

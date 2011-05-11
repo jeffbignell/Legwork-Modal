@@ -11,6 +11,10 @@
 
 Legwork modals have magical powers. Check out example.html for docs and examples.
 
+v0.5
+ * Added 'position' option to placement
+ * More IE bug fixes
+
 v0.4
  * IE bug fix
  * open method bug fix
